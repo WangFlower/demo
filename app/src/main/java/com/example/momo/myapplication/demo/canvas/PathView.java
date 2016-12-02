@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.demo.path;
+package com.example.momo.myapplication.demo.canvas;
 
 import android.content.Context;
 import android.graphics.Canvas;
