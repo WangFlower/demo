@@ -10,7 +10,7 @@ import com.example.momo.myapplication.R;
  * Created by wang.renguang on 16/11/28.
  */
 
-public class PathDemoAvtivity extends AppCompatActivity {
+public class DemoAvtivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
