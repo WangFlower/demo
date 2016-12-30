@@ -24,12 +24,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
     ProgressBar mPro;
     ILoginPresenter mILoginPresenter;
 
-
-
-
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mILoginPresenter = new ILoginPresenterImpl(this);
@@ -60,10 +54,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
         mPwd.getInputExtras(true).putInt("SOGOU_EXPRESSION",1);
 
     }
-
-
-
-
 
     @Override
     public String getPwd() {
