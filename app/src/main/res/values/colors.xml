@@ -9,4 +9,8 @@
     <color name="background_normal_press">#e9e8eb</color>
     <color name="background_normal_selected">#fffff2ab</color>
     <color name="white">#ffffffff</color>
+    <color name="text">#000000</color>
+    <color name="textbg">#ffffff</color>
+    <color name="bg">#00000000</color>
+    <color name="bg2">#00FF4081</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MomentLikeButton">
+    <declare-styleable name="MomentShareButton">
         <attr name="mlb_style" format="reference"/>
         <attr name="mlb_text_color" format="color|reference"/>
         <attr name="mlb_text_size" format="dimension|reference"/>
