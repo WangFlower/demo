@@ -2,9 +2,7 @@ package com.example.momo.myapplication.demo.edittext;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
+import android.view.View;
 
 import com.example.momo.myapplication.R;
 
@@ -14,49 +12,21 @@ import com.example.momo.myapplication.R;
 
 public class SamActivity extends Activity {
 
-    boolean flag;
-    Thread thread;
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            thread.interrupt();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sam);
-
-
-
-        thread = new Thread(){
-
+        findViewById(R.id.sam).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                sam1.start();
-                Log.i("wangrenguang","thread");
-            }
-        };
-        thread.start();
-        handler.sendEmptyMessageDelayed(0,5000);
-    }
-
-
-    Thread sam1 = new Thread(){
-        int i = 1;
-        @Override
-        public void run() {
-            for (;;){
+            public void onClick(View v) {
                 try {
-                    sleep(500);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Log.i("wangrenguang","sam1:"+(i++));
             }
+        });
+    }
 
-        }
-    };
 }
