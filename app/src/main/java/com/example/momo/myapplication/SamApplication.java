@@ -11,7 +11,6 @@ public class SamApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        BlockCanary.install(this, new MOMOBlockCanaryContext()).start();
-
         LooperMonitorHelper.start();
     }
 }
