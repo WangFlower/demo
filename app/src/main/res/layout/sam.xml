@@ -10,20 +10,29 @@
     >
 
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="sam"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sam"/>
 
-    <!--<com.example.momo.myapplication.demo.edittext.SamEdText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <com.example.momo.myapplication.demo.edittext.SamEdText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/sam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dddddd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dddd"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

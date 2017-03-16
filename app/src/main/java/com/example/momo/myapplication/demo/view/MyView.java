@@ -8,6 +8,8 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by MOMO on 16/11/28.
  */
@@ -43,6 +45,7 @@ public class MyView extends View {
         init();
     }
 
+    @DebugLog
     private void init() {
         path = new Path();
         paintS = new Paint(Paint.ANTI_ALIAS_FLAG);

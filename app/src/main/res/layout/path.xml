@@ -14,85 +14,98 @@
         android:id="@+id/ddd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:background="@drawable/ball"/>
 
     <com.example.momo.myapplication.demo.view.ColorMatrixImageView
         android:id="@+id/ssss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ddd"/>
+        android:layout_toRightOf="@+id/ddd"
+        android:visibility="gone"/>
 
 
-    <TextView
-        android:id="@+id/rt"
+    <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ddd"
-        android:text="R"
-        android:textSize="20dp"/>
+        android:visibility="gone"
+        android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/r"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rt"
-        android:max="256"
-        android:progress="128"
-        />
+        <TextView
+            android:id="@+id/rt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ddd"
+            android:text="R"
+            android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/gt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/r"
-        android:layout_marginTop="10dp"
-        android:text="G"
-        android:textSize="20dp"/>
+        <SeekBar
+            android:id="@+id/r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rt"
+            android:max="256"
+            android:progress="128"
+            />
 
-    <SeekBar
-        android:id="@+id/g"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gt"
-        android:max="256"
-        android:progress="128"
-        />
+        <TextView
+            android:id="@+id/gt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/r"
+            android:layout_marginTop="10dp"
+            android:text="G"
+            android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/g"
-        android:layout_marginTop="10dp"
-        android:text="B"
-        android:textSize="20dp"/>
+        <SeekBar
+            android:id="@+id/g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gt"
+            android:max="256"
+            android:progress="128"
+            />
 
-    <SeekBar
-        android:id="@+id/b"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bt"
-        android:max="256"
-        android:progress="128"
-        />
+        <TextView
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/g"
+            android:layout_marginTop="10dp"
+            android:text="B"
+            android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/at"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/b"
-        android:layout_marginTop="10dp"
-        android:text="A"
-        android:textSize="20dp"/>
+        <SeekBar
+            android:id="@+id/b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt"
+            android:max="256"
+            android:progress="128"
+            />
 
-    <SeekBar
-        android:id="@+id/a"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/at"
-        android:max="256"
-        android:progress="128"
-        />
+        <TextView
+            android:id="@+id/at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b"
+            android:layout_marginTop="10dp"
+            android:text="A"
+            android:textSize="20dp"/>
+        <SeekBar
+            android:id="@+id/a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/at"
+            android:max="256"
+            android:progress="128"
+            />
+    </LinearLayout>
+
+
+
+
 
 
 </RelativeLayout>
