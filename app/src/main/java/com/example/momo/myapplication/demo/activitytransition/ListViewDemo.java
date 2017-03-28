@@ -17,6 +17,8 @@ import android.widget.ListView;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.demo.broadcastreceiver.BroadcastreceiverDemo;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Created by MOMO on 17/2/24.
  */
@@ -83,6 +85,18 @@ public class ListViewDemo extends Activity {
         this.registerReceiver(new BroadcastreceiverDemo(),new IntentFilter("123"));
         this.registerReceiver(new BroadcastreceiverDemo(),new IntentFilter("234"));
         sendBroadcast(new Intent("123"));
+
+
+
+        final WeakReference<ImageView> imageViewReference = new WeakReference<>(null);
+        if(imageViewReference.get()==null){
+            Log.i("wangrenguang","imageViewReference == null");
+        } else {
+            Log.i("wangrenguang","imageViewReference != null");
+        }
+
+
+
     }
 
     Handler handler = new Handler(){
@@ -94,7 +108,22 @@ public class ListViewDemo extends Activity {
             Log.i("wangrenguang","handleMessage2");
 
         }
+
+
     };
+
+
+    class Person {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 
     public static String getFormatNumberStr(long number) {
         if (number < 1000l) {

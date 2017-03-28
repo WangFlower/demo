@@ -47,7 +47,7 @@
         android:supportsRtl="true"
         android:name=".SamApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo.activitytransition.ListViewDemo">
+        <activity android:name=".rx.RxDemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
