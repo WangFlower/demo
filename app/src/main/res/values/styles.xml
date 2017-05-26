@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="Momo_ProgressBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/emotion_search_loading_color</item>
+        <item name="colorPrimaryDark">@color/emotion_search_loading_color</item>
+        <item name="colorAccent">@color/emotion_search_loading_color</item>
+    </style>
+
     <style name="BaseToolBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:padding">0dp</item>

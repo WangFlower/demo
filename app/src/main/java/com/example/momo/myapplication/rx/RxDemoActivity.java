@@ -1,17 +1,20 @@
 package com.example.momo.myapplication.rx;
 
 import android.app.Activity;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.system.ErrnoException;
+
 import android.util.Log;
+import android.widget.ImageButton;
+
+import com.bumptech.glide.Glide;
+import com.example.momo.myapplication.R;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -44,6 +47,21 @@ public class RxDemoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        byte[] buffer = new byte[0];
+
+        ImageButton imageButton = (ImageButton) findViewById(R.id.sss);
+
+        Glide.with(this).load("").asGif().into(imageButton);
+//        try {
+//            FrameSequence frameSequence = FrameSequence.decodeStream(getAssets().open("webp.webp"));
+//            FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
+//            ImageView imageView = (ImageView) findViewById(R.id.webp);
+//            imageView.setImageDrawable(frameSequenceDrawable);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
 
 //        //创建一个上游 Observable：
 //        Observable.create(new ObservableOnSubscribe<Integer>() {
