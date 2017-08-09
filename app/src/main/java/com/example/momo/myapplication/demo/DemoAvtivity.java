@@ -10,6 +10,8 @@ import com.example.momo.myapplication.view.ColorMatrixImageView;
 
 /**
  * Created by wang.renguang on 16/11/28.
+ *
+ * 图片颜色处理
  */
 
 public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {

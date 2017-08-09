@@ -50,6 +50,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".demo.DemoAvtivity" />
+        <activity android:name=".demo.RxDemoActivity" />
+        <activity android:name=".demo.PickViewActivity" />
     </application>
 
 </manifest>

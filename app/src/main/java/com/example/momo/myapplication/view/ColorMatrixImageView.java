@@ -10,12 +10,14 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.momo.myapplication.R;
 
 /**
- * Created by MOMO on 16/12/14.
+ * Created by wangrenguang on 16/12/14.
+ * 图片颜色处理
  * http://blog.csdn.net/sjf0115/article/details/8698619
  * <p>
  * https://my.oschina.net/u/1377657/blog/400503
@@ -60,21 +62,28 @@ public class ColorMatrixImageView extends ImageView {
 
     private void init() {
 
+        // decode出来的图片 是不可编辑的
         baseBitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ball);
-        afterBitmap = Bitmap.createBitmap(baseBitmap.getWidth(), baseBitmap.getHeight(), Bitmap
-                .Config.ARGB_8888);
+        Log.i("wangrenguang", "baseBitmap " + baseBitmap.isMutable());
+
+        // 下面两种方式可以创建出可以编辑的bitmap
+//        afterBitmap = Bitmap.createBitmap(baseBitmap.getWidth(), baseBitmap.getHeight(), Bitmap
+//                .Config.ARGB_8888);
+//        Log.i("wangrenguang","baseBitmap "+afterBitmap.isMutable());
+        afterBitmap = baseBitmap.copy(baseBitmap.getConfig(), true);
+        Log.i("wangrenguang", "baseBitmap " + afterBitmap.isMutable());
+
 
         paint = new Paint();
         colorMatrix = new ColorMatrix();
+        //给canvas 的bitmap 需要是可以编辑的  不然会 throw new IllegalStateException("Immutable bitmap passed to Canvas constructor");
         canvas = new Canvas(afterBitmap);
-
-
         setBitMap(colorArray);
     }
 
     public void setBitMap(float[] colorArray) {
-        colorMatrix.set(colorArray);
         colorMatrix.setSaturation(0);
+        colorMatrix.set(colorArray);
         paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
         canvas.drawBitmap(baseBitmap, 0, 0, paint);
         setImageBitmap(afterBitmap);
@@ -93,13 +102,5 @@ public class ColorMatrixImageView extends ImageView {
                 0, 0, g, 0, 0,
                 0, 0, 0, b, 0};
         setBitMap(colorArray);
-    }
-
-
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
     }
 }

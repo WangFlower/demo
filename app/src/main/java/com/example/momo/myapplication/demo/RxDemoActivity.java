@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.ImageButton;
-
-import com.example.momo.myapplication.R;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -35,7 +32,8 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Created by sam on 2017/3/24.
+ * Created by wangrenguang on 2017/3/24.
+ * RX
  */
 
 public class RxDemoActivity extends Activity {
@@ -44,10 +42,7 @@ public class RxDemoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        byte[] buffer = new byte[0];
-
-        ImageButton imageButton = (ImageButton) findViewById(R.id.sss);
+//        setContentView(R.layout.activity_main);
 
 //        try {
 //            FrameSequence frameSequence = FrameSequence.decodeStream(getAssets().open("webp.webp"));

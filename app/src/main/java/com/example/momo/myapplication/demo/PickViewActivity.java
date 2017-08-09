@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.view;
+package com.example.momo.myapplication.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,12 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.momo.myapplication.R;
+import com.example.momo.myapplication.view.PageIndicatorView;
+import com.example.momo.myapplication.view.PageRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by MOMO on 17/2/13.
+ * Created by wangrenguang on 17/2/13.
+ * 横向翻页RecyclerView
+ *
  */
 
 public class PickViewActivity extends Activity {
@@ -27,8 +31,7 @@ public class PickViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.cusom_swipe_view);
         initData();
 
         mRecyclerView = (PageRecyclerView) findViewById(R.id.cusom_swipe_view);
