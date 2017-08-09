@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
+    <!--<Button-->
+    <!--android:id="@+id/sam"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:text="111111"/>-->
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+    <!--<com.example.momo.myapplication.demo.view.GameView-->
+    <!--android:id="@+id/gameview"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#00000000">-->
 
-    <TextView
+    <!--</com.example.momo.myapplication.demo.view.GameView>-->
+
+    <com.example.momo.myapplication.view.GameWebLoadingView
+        android:id="@+id/loadingview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        tools:visibility="visible" />
 
 
 </RelativeLayout>

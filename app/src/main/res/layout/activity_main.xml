@@ -3,13 +3,13 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-        <com.example.momo.myapplication.mvp.view.PageRecyclerView
+    <com.example.momo.myapplication.view.PageRecyclerView
             android:id="@+id/cusom_swipe_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
 
-        <com.example.momo.myapplication.mvp.view.PageIndicatorView
+    <com.example.momo.myapplication.view.PageIndicatorView
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_marginBottom="20dp"
