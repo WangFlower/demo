@@ -14,4 +14,5 @@
     <color name="bg">#00000000</color>
     <color name="bg2">#00FF4081</color>
     <color name="emotion_search_loading_color">#bebebe</color>
+    <color name="grid_view_sp_line">#f0f0f0</color>
 </resources>
