@@ -55,6 +55,8 @@
         <activity android:name=".demo.DemoAvtivity" />
         <activity android:name=".demo.RxDemoActivity" />
         <activity android:name=".demo.PickViewActivity" />
+        <activity android:name=".demo.RecyclerDemo" />
+
     </application>
 
 </manifest>

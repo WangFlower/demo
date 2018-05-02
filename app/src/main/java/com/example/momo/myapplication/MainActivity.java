@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.momo.myapplication.demo.DemoAvtivity;
 import com.example.momo.myapplication.demo.PickViewActivity;
+import com.example.momo.myapplication.demo.RecyclerDemo;
 import com.example.momo.myapplication.demo.RxDemoActivity;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
         data.add(new ItemModel("图片颜色处理", DemoAvtivity.class));
         data.add(new ItemModel("Rx demo", RxDemoActivity.class));
         data.add(new ItemModel("横向分页的RecyclerView", PickViewActivity.class));
+        data.add(new ItemModel("recycle demo", RecyclerDemo.class));
         MyAdapter adapter = new MyAdapter(data, this);
         recyclerView.setAdapter(adapter);
     }

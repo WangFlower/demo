@@ -2,6 +2,9 @@ package com.example.momo.myapplication.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -11,25 +14,34 @@ import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.FlowableSubscriber;
 import io.reactivex.FlowableTransformer;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.flowables.ConnectableFlowable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
+import io.reactivex.observables.ConnectableObservable;
+import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
 
 /**
  * Created by wangrenguang on 2017/3/24.
@@ -37,376 +49,212 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class RxDemoActivity extends Activity {
-    private static final String TAG ="RxDemoActivity";
+    private static final String TAG = "RxDemoActivity";
+
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
+    Flowable<String> flowable;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            handler.sendEmptyMessageDelayed(1, 1000);
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
+        //        setContentView(R.layout.activity_main);
 
-//        try {
-//            FrameSequence frameSequence = FrameSequence.decodeStream(getAssets().open("webp.webp"));
-//            FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
-//            ImageView imageView = (ImageView) findViewById(R.id.webp);
-//            imageView.setImageDrawable(frameSequenceDrawable);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        //        try {
+        //            FrameSequence frameSequence = FrameSequence.decodeStream(getAssets().open("webp.webp"));
+        //            FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
+        //            ImageView imageView = (ImageView) findViewById(R.id.webp);
+        //            imageView.setImageDrawable(frameSequenceDrawable);
+        //        } catch (IOException e) {
+        //            e.printStackTrace();
+        //        }
 
         //创建一个上游 Observable：
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onNext(3);
-                emitter.onComplete();
-            }
-        }).subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d(TAG, "subscribe");
-
-            }
-
-            @Override
-            public void onNext(Integer value) {
-                Log.d(TAG, "" + value);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "error");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "complete");
-            }
-        });
-
-        //创建一个下游 Observer
-        Observer<Integer> observer = new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d(TAG, "subscribe");
-            }
-
-            @Override
-            public void onNext(Integer value) {
-                Log.d(TAG, "" + value);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "error");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "complete");
-            }
-        };
-
-        //建立连接
-//        observable.subscribe(observer);
-        demo7();
-    }
-
-
-    private void demo1(){
-        Observable<Integer> observable  = Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                Log.d(TAG, "Observable thread is : " + Thread.currentThread().getName());
-                Log.d(TAG, "emit 1");
-                emitter.onNext(1);
-            }
-        });
-
-        observable.subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d(TAG, "subscribe");
-
-            }
-
-            @Override
-            public void onNext(Integer value) {
-                Log.d(TAG, "" + value);
-                Log.d(TAG, "Observer thread is :" + Thread.currentThread().getName());
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "error");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "complete");
-            }
-        });
-        Consumer<Integer> consumer = new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                Log.d(TAG, "Observer thread is :" + Thread.currentThread().getName());
-                Log.d(TAG, "onNext: " + integer);
-            }
-        };
-
-
-
-        observable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).observeOn(Schedulers.io()).subscribe(consumer);
-    }
-
-    private void demo2(){
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                e.onNext(1);
-                e.onNext(2);
-                e.onNext(3);
-            }
-        }).map(new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) throws Exception {
-                return "sam " +integer;
-            }
-        }).subscribe(new Observer<String>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d(TAG, "subscribe");
-
-            }
-
-            @Override
-            public void onNext(String value) {
-                Log.d(TAG, "" + value);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "error");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "complete");
-            }
-        });
-    }
-
-    /**
-     * flatMap 操作符 无序
-     * concatMap 有序
-     *
-     */
-    private void demo3(){
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onNext(3);
-            }
-        }).flatMap(new Function<Integer, ObservableSource<String>>() {
-            @Override
-            public ObservableSource<String> apply(Integer integer) throws Exception {
-                List<String> list = new ArrayList<String>();
-                if(integer==1){
-                    list.add("sam "+1);
-                    list.add("sam "+1);
-                } else {
-                    list.add("sam"+integer);
-                }
-                return Observable.fromIterable(list).delay(5, TimeUnit.MILLISECONDS);
-            }
-        }).subscribe(new Consumer<String>() {
-
-            @Override
-            public void accept(String s) throws Exception {
-                Log.d(TAG,s);
-            }
-        });
-    }
-
-    /**
-     * zip 操作符使用
-     */
-    private void demo4(){
-        Observable<Integer> o1 = Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                Log.d(TAG, "emit 1");
-                emitter.onNext(1);
-                Log.d(TAG, "emit 2");
-                emitter.onNext(2);
-                Log.d(TAG, "emit 3");
-                emitter.onNext(3);
-                Log.d(TAG, "emit 4");
-                emitter.onNext(4);
-                Log.d(TAG, "emit complete1");
-                emitter.onComplete();
-            }
-        }).subscribeOn(Schedulers.io());
-
-        Observable<String> o2 = Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                Log.d(TAG, "emit A");
-                emitter.onNext("A");
-                Log.d(TAG, "emit B");
-                emitter.onNext("B");
-                Log.d(TAG, "emit C");
-                emitter.onNext("C");
-                Log.d(TAG, "emit complete2");
-                emitter.onComplete();
-            }
-        }).subscribeOn(Schedulers.io());
-
-        Observable.zip(o1,o2,new BiFunction<Integer,String,String>(){
-
-            @Override
-            public String apply(Integer integer, String s) throws Exception {
-                return integer+s;
-            }
-        }).subscribe(new Observer<String>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d(TAG, "subscribe");
-
-            }
-
-            @Override
-            public void onNext(String value) {
-                Log.d(TAG, "" + value);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.d(TAG, "error");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.d(TAG, "complete");
-            }
-        });
+        demo10();
 
     }
 
-    /**
-     * 背压处理
-     * filter 过滤处理
-     * sample 延迟处理
-     */
-    private void demo5(){
-        Observable.create(new ObservableOnSubscribe<Integer>() {
+    public void flowableDemo() {
+        // 登录的demo
+        Flowable.fromCallable(new Callable<RegisterRespone>() {
             @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                for (int  i= 0;;i++){
-                    e.onNext(i);
-                }
+            public RegisterRespone call() throws Exception {
+                // 注册
+                return new RegisterRespone();
             }
-        }).sample(2,TimeUnit.SECONDS).subscribeOn(Schedulers.io()).filter(new Predicate<Integer>() {
+        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).doOnNext(new Consumer<RegisterRespone>() {
             @Override
-            public boolean test(Integer integer) throws Exception {
-                if(integer % 100 ==0){
-                    return true;
-                }
-                return false;
+            public void accept(RegisterRespone registerRespone) throws Exception {
+                // Toast("Login success!")
             }
-        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Integer>() {
+        }).observeOn(Schedulers.io()).flatMap(new Function<RegisterRespone, Publisher<LoginRespone>>() {
             @Override
-            public void accept(Integer integer) throws Exception {
-                Log.d(TAG, "" + integer);
+            public Publisher<LoginRespone> apply(RegisterRespone registerRespone) throws Exception {
+                return Flowable.just(new LoginRespone());
             }
-        });
-    }
-
-    /**
-     * Flowable 的使用
-     */
-    private void demo6(){
-        Flowable.create(new FlowableOnSubscribe<Integer>() {
+        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new DisposableSubscriber<LoginRespone>() {
             @Override
-            public void subscribe(FlowableEmitter<Integer> emitter) throws Exception {
-                Log.d(TAG, "emit 1"+Thread.currentThread().getName());
-                emitter.onNext(1);
-                Log.d(TAG, "emit 2");
-                emitter.onNext(2);
-                Log.d(TAG, "emit 3");
-                emitter.onNext(3);
-                Log.d(TAG, "emit complete");
-                emitter.onComplete();
-            }
-        }, BackpressureStrategy.ERROR).subscribeOn(Schedulers.io()).subscribe(new Subscriber<Integer>() {
-
-            @Override
-            public void onSubscribe(Subscription s) {
-                Log.d(TAG, "onSubscribe");
-                s.request(1);
-            }
-
-            @Override
-            public void onNext(Integer integer) {
-                Log.d(TAG, "onNext"+Thread.currentThread().getName());
+            public void onNext(LoginRespone loginRespone) {
             }
 
             @Override
             public void onError(Throwable t) {
-                Log.d(TAG, "onError" +t);
             }
 
             @Override
             public void onComplete() {
-                Log.d(TAG, "onComplete");
             }
         });
+    }
+
+    public static class RegisterRespone {
+
+        public RegisterRespone() {
+            Log.i("wangrenguang3", "register.....");
+        }
 
     }
 
+    public static class LoginRespone {
+        public LoginRespone() {
+            Log.i("wangrenguang3", "Login.....");
+        }
+    }
 
-    private void demo7(){
-        Flowable f1 = Flowable.create(new FlowableOnSubscribe() {
-            @Override
-            public void subscribe(FlowableEmitter e) throws Exception {
-                Thread.sleep(2000);
-                Log.d(TAG, "f1 subscribe ");
-                e.onNext("f1");
-                e.onComplete();
-            }
-        }, BackpressureStrategy.ERROR).subscribeOn(Schedulers.io());
+    public static class CommonSubscriber<T> extends DisposableSubscriber<T> {
 
-        Flowable f2 = Flowable.create(new FlowableOnSubscribe() {
+        @Override
+        public void onNext(T t) {
+
+        }
+
+        @Override
+        public void onError(Throwable t) {
+
+        }
+
+        @Override
+        public void onComplete() {
+
+        }
+    }
+
+    public void demo10() {
+        // Hot observable -->publish
+        Disposable disposable =  Flowable.fromCallable(new Callable<String>() {
+
             @Override
-            public void subscribe(FlowableEmitter e) throws Exception {
-                new Exception("sss");
+            public String call() throws Exception {
+                throw new NullPointerException();
             }
-        },BackpressureStrategy.MISSING).subscribeOn(Schedulers.io()).compose(new FlowableTransformer<String, String>() {
+
+
+        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).compose(new FlowableTransformer<String,String>(){
+
             @Override
-            public Publisher<String> apply(Flowable<String> upstream) {
-                return upstream.doOnNext(new Consumer<String>() {
+            public Publisher apply(Flowable upstream) {
+                return upstream.doOnError(new Consumer<Throwable>() {
                     @Override
-                    public void accept(String s) throws Exception {
-                        Log.d(TAG, "f2 "+s);
+                    public void accept(Throwable throwable) throws Exception {
+                        Log.i("wangrenguang0", "accept" + throwable.getMessage());
                     }
                 });
             }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.i("wangrenguang0", "accept" + s);
+            }
         });
 
-        Flowable.concat(f1,f2).subscribe(new Consumer<String>() {
+
+        Flowable.fromCallable(new Callable<String>() {
             @Override
-            public void accept(String o) throws Exception {
-                Log.d(TAG, "accept" +o);
-            }
-        }, new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                Log.d(TAG, "throwable" +throwable.getMessage());
+            public String call() throws Exception {
+                return null;
             }
         });
+
+//        flowable.connect(new Consumer<Disposable>() {
+//            @Override
+//            public void accept(Disposable disposable) throws Exception {
+//                compositeDisposable.add(disposable);
+//            }
+//        });
+//        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
+//            @Override
+//            public void accept(Throwable throwable) throws Exception {
+//                Log.i("wangrenguang0", "异常..." + throwable.getMessage());
+//            }
+//        });
+//        flowable.doOnError(new Consumer<Throwable>() {
+        //            @Override
+        //            public void accept(Throwable throwable) throws Exception {
+        //                Log.i("wangrenguang0", "异常" + throwable.getMessage());
+        //            }
+        //        });
+//        Disposable disposable = flowable.subscribe(new Consumer<String>() {
+//            @Override
+//            public void accept(String s) throws Exception {
+//                Log.i("wangrenguang0", "accept" + s);
+//            }
+//        }, new Consumer<Throwable>() {
+//            @Override
+//            public void accept(Throwable throwable) throws Exception {
+//                Log.i("wangrenguang0", "throwable " + throwable.getMessage());
+//            }
+//        });
+
+        compositeDisposable.add(disposable);
+
+
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                compositeDisposable.clear();
+//            }
+//        }, 2000);
+
+    }
+
+    private void d() {
+        flowable.subscribe(new FlowableSubscriber<String>() {
+            @Override
+            public void onSubscribe(Subscription s) {
+                s.request(100);
+                Log.i("wangrenguangx", "onSubscribe:");
+            }
+
+            @Override
+            public void onNext(String s) {
+                Log.i("wangrenguangx", "onNext:" + s);
+                if (s.equals("11")) {
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                Log.i("wangrenguangx", "onError:" + t.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.i("wangrenguangx", "onComplete:");
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
+
     }
 
 }
