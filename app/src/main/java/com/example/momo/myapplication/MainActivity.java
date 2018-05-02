@@ -17,6 +17,7 @@ import com.example.momo.myapplication.demo.DemoAvtivity;
 import com.example.momo.myapplication.demo.PickViewActivity;
 import com.example.momo.myapplication.demo.RecyclerDemo;
 import com.example.momo.myapplication.demo.RxDemoActivity;
+import com.example.mrouter.compiler.MRouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * Created by sam on 2017/8/9.
  */
-
+@MRouter("[main]")
 public class MainActivity extends Activity {
 
     @Override

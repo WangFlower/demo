@@ -1,4 +1,4 @@
-package com.sam.mmrouter;
+package com.example.mrouter.compiler;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.sam.mmrouter.test", appContext.getPackageName());
+        assertEquals("com.example.mrouter.compiler.test", appContext.getPackageName());
     }
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.view.PageIndicatorView;
 import com.example.momo.myapplication.view.PageRecyclerView;
+import com.example.mrouter.compiler.MRouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,6 @@ import java.util.List;
  * 横向翻页RecyclerView
  *
  */
-
 public class PickViewActivity extends Activity {
     private PageRecyclerView mRecyclerView = null;
     private List<String> dataList = null;

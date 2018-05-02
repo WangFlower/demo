@@ -1,1 +1,1 @@
-include ':app', ':httpdns', ':mmrouter'
+include ':app', ':httpdns', ':mrouter_processor', ':mrouter_compiler'

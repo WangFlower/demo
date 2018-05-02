@@ -1,4 +1,4 @@
-package com.sam.mmrouter;
+package com.example.mrouter.compiler;
 
 import org.junit.Test;
 
