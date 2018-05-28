@@ -25,11 +25,7 @@ import javax.tools.Diagnostic;
 @AutoService(Processor.class)
 public class RouterProcessor extends AbstractProcessor {
 
-
-
     Messager messager;
-
-
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -51,6 +47,13 @@ public class RouterProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+
+        for (TypeElement element:set) {
+
+
+
+        }
+
         MethodSpec main = MethodSpec.methodBuilder("main")
                                     .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
                                     .returns(void.class)
@@ -72,7 +75,7 @@ public class RouterProcessor extends AbstractProcessor {
             e.printStackTrace();
         }
 
-        return false;
+        return true;
     }
 
 

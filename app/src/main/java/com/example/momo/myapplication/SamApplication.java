@@ -12,6 +12,7 @@ public class SamApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppContext.setContext(this);
         BlockCanary.install(this, new MOMOBlockCanaryContext()).start();
         LooperMonitorHelper.start();
     }

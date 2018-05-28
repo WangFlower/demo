@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.momo.myapplication.demo.DemoAvtivity;
+import com.example.momo.myapplication.demo.ImageCropDemoActivity;
 import com.example.momo.myapplication.demo.PickViewActivity;
 import com.example.momo.myapplication.demo.RecyclerDemo;
 import com.example.momo.myapplication.demo.RxDemoActivity;
@@ -41,6 +42,7 @@ public class MainActivity extends Activity {
         data.add(new ItemModel("Rx demo", RxDemoActivity.class));
         data.add(new ItemModel("横向分页的RecyclerView", PickViewActivity.class));
         data.add(new ItemModel("recycle demo", RecyclerDemo.class));
+        data.add(new ItemModel("ImageCropDemoActivity", ImageCropDemoActivity.class));
         MyAdapter adapter = new MyAdapter(data, this);
         recyclerView.setAdapter(adapter);
     }

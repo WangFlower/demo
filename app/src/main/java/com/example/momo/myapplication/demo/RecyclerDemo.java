@@ -1,5 +1,7 @@
 package com.example.momo.myapplication.demo;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -11,9 +13,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewPropertyAnimator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.momo.myapplication.R;
+import com.example.momo.myapplication.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +39,9 @@ public class RecyclerDemo extends Activity {
 
     Handler handler = new Handler();
 
+    private AnimatorSet hideAnimator;
+    private AnimatorSet showAnimator;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +54,55 @@ public class RecyclerDemo extends Activity {
         }
         recyclerView.setAdapter(new MyAdapter(this,list));
 
+        final View imageView = findViewById(R.id.goto_record_layout);
 
+
+
+        showAnimator = new AnimatorSet() ;
+
+        final ObjectAnimator sty = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY());
+        final ObjectAnimator sah = ObjectAnimator.ofFloat(imageView, "alpha", 1f);
+        showAnimator.setInterpolator(new LinearInterpolator());
+        showAnimator.setDuration(300);
+        showAnimator.play(sty).with(sah);
+
+        hideAnimator = new AnimatorSet();
+        final ObjectAnimator hsy = ObjectAnimator.ofFloat(imageView, "translationY", UIUtils.getPixels(176));
+        final ObjectAnimator hah = ObjectAnimator.ofFloat(imageView, "alpha", 0f);
+        hideAnimator.setInterpolator(new LinearInterpolator());
+        hideAnimator.setDuration(300);
+        hideAnimator.play(hsy).with(hah);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            boolean isVisible = true;
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if(Math.abs(dy)<UIUtils.getPixels(3)){
+                    return;
+                }
+                if (dy > 0) {
+                    if(!isVisible){
+                        return;
+                    }
+                    isVisible = false;
+                    showAnimator.cancel();
+                    hideAnimator.start();
+                } else if(dy<0){
+                    if(isVisible){
+                        return;
+                    }
+                    isVisible = true;
+                    hideAnimator.cancel();
+                    showAnimator.start();
+                }
+            }
+        });
 
     }
 

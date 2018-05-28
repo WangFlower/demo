@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+
+    <com.example.momo.myapplication.view.MusicImageView
+        android:id="@+id/ddd"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+         />
+
+
+    <com.example.momo.myapplication.view.MusicImageView
+        android:id="@+id/ccc"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_below="@+id/ddd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        />
+
+
+
+</RelativeLayout>

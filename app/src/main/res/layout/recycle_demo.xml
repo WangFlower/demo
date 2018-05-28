@@ -9,4 +9,29 @@
         android:layout_height="match_parent" />
 
 
+
+    <RelativeLayout
+        android:id="@+id/goto_record_layout"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="@drawable/bg_music_info_goto_record_layout"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/goto_record_btn"
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:textSize="15.5sp"
+            android:textColor="@color/white"
+            android:letterSpacing="0.04"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/bg_music_info_goto_record_btn"
+            android:text="拍同款" />
+
+    </RelativeLayout>
+
+
 </RelativeLayout>
