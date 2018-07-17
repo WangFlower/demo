@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        app:elevation="0dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+        >
+
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/ball"/>
+
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="58dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="fuck"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/profile_layout_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:paddingRight="20dp">
+        <!-- 话题 -->
+        <TextView
+            android:id="@+id/profile_account_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fuck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_account_title"
+            android:orientation="horizontal">
+
+
+            <ViewStub
+                android:id="@+id/profile_account_fortune_layout_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout="@layout/profile_common_layout_account_vip" />
+
+            <ViewStub
+                android:id="@+id/profile_account_vip_layout_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout="@layout/profile_common_layout_account_vip" />
+
+            <ViewStub
+                android:id="@+id/profile_account_grow_layout_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout="@layout/profile_common_layout_account_vip" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

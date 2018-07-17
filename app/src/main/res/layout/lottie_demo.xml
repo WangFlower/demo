@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:clipChildren="false"
+        android:layout_centerVertical="true"
+        android:clipToPadding="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12.5dp">
+
+        <RelativeLayout
+            android:id="@+id/fsd"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/oval_6"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9sp"
+                android:textColor="#f7569e"
+                android:lineSpacingExtra="4sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="14dp"
+                android:text="+99"
+                />
+        </RelativeLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadingview"
+            android:layout_width="143dp"
+            android:layout_height="215dp"
+            android:layout_gravity="center|bottom"
+            />
+
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/ball"
+        android:layout_height="360dp">
+
+        <ImageView
+            android:id="@+id/photo_mask_top"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_user_profile_header_phonto_mask_top" />
+
+
+        <ImageView
+            android:id="@+id/photo_mask_foot"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_user_profile_header_phonto_mask" />
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

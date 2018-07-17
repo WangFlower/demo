@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpdns/httpdns.iml" filepath="$PROJECT_DIR$/httpdns/httpdns.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mrouter_processor/mrouter.iml" filepath="$PROJECT_DIR$/mrouter_processor/mrouter.iml" />
       <module fileurl="file://$PROJECT_DIR$/mrouter_compiler/mrouter_compiler.iml" filepath="$PROJECT_DIR$/mrouter_compiler/mrouter_compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/mrouter_processor/mrouter_processor.iml" filepath="$PROJECT_DIR$/mrouter_processor/mrouter_processor.iml" />
     </modules>

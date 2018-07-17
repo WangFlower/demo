@@ -57,7 +57,10 @@
         <activity android:name=".demo.PickViewActivity" />
         <activity android:name=".demo.RecyclerDemo" />
         <activity android:name=".demo.ImageCropDemoActivity" />
-
+        <activity android:name=".demo.ViewPageDemoActivity" />
+        <activity android:name=".demo.LottieDemoActivity" />
+        <activity android:name="com.example.momo.myapplication.dragger.view.DraggerDemoActivity" />
+        <activity android:name=".demo.ViewDemoActivity"/>
 
     </application>
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.momo.myapplication.BaseActivity;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.view.PageIndicatorView;
 import com.example.momo.myapplication.view.PageRecyclerView;
@@ -22,7 +23,7 @@ import java.util.List;
  * 横向翻页RecyclerView
  *
  */
-public class PickViewActivity extends Activity {
+public class PickViewActivity extends BaseActivity {
     private PageRecyclerView mRecyclerView = null;
     private List<String> dataList = null;
     private PageRecyclerView.PageAdapter myAdapter = null;

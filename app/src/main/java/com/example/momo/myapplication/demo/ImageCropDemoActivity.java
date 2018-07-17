@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 
+import com.example.momo.myapplication.BaseActivity;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.view.MusicImageView;
 
@@ -14,7 +15,7 @@ import com.example.momo.myapplication.view.MusicImageView;
  * Created by wang.renguang on 2018/5/7.
  */
 
-public class ImageCropDemoActivity extends Activity {
+public class ImageCropDemoActivity extends BaseActivity {
 
     private Handler handler = new Handler();
 

@@ -8,6 +8,8 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.example.momo.myapplication.BaseActivity;
+
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -48,7 +50,7 @@ import io.reactivex.subscribers.DisposableSubscriber;
  * RX
  */
 
-public class RxDemoActivity extends Activity {
+public class RxDemoActivity extends BaseActivity {
     private static final String TAG = "RxDemoActivity";
 
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -147,39 +149,39 @@ public class RxDemoActivity extends Activity {
 
     public void demo10() {
         // Hot observable -->publish
-        Disposable disposable =  Flowable.fromCallable(new Callable<String>() {
-
-            @Override
-            public String call() throws Exception {
-                throw new NullPointerException();
-            }
-
-
-        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).compose(new FlowableTransformer<String,String>(){
-
-            @Override
-            public Publisher apply(Flowable upstream) {
-                return upstream.doOnError(new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.i("wangrenguang0", "accept" + throwable.getMessage());
-                    }
-                });
-            }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                Log.i("wangrenguang0", "accept" + s);
-            }
-        });
-
-
-        Flowable.fromCallable(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return null;
-            }
-        });
+//        Disposable disposable =  Flowable.fromCallable(new Callable<String>() {
+//
+//            @Override
+//            public String call() throws Exception {
+//                throw new NullPointerException();
+//            }
+//
+//
+//        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).compose(new FlowableTransformer<String,String>(){
+//
+//            @Override
+//            public Publisher apply(Flowable upstream) {
+//                return upstream.doOnError(new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Exception {
+//                        Log.i("wangrenguang0", "accept" + throwable.getMessage());
+//                    }
+//                });
+//            }
+//        }).subscribe(new Consumer<String>() {
+//            @Override
+//            public void accept(String s) throws Exception {
+//                Log.i("wangrenguang0", "accept" + s);
+//            }
+//        });
+//
+//
+//        Flowable.fromCallable(new Callable<String>() {
+//            @Override
+//            public String call() throws Exception {
+//                return null;
+//            }
+//        });
 
 //        flowable.connect(new Consumer<Disposable>() {
 //            @Override
@@ -211,7 +213,7 @@ public class RxDemoActivity extends Activity {
 //            }
 //        });
 
-        compositeDisposable.add(disposable);
+//        compositeDisposable.add(disposable);
 
 
 //        handler.postDelayed(new Runnable() {

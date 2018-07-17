@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_account_fortune_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/profile_account_fortune_icon"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ducky" />
+
+        <TextView
+            android:id="@+id/profile_account_fortune_nub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="32" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/profile_account_fortune_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:maxWidth="95dp"
+        android:singleLine="true"
+        android:textColor="#323333"
+        android:textSize="12sp"
+        android:text="财富等级12" />
+
+    <TextView
+        android:id="@+id/profile_account_fortune_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:maxWidth="95dp"
+        android:singleLine="true"
+        android:textColor="#aaaaaa"
+        android:textSize="11sp"
+        android:text="20天财富等级12财富等级12升级" />
+
+</LinearLayout>

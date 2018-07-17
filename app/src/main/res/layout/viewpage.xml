@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="375dp">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:tabPaddingEnd="10dp"
+        app:tabPaddingStart="10dp"
+        app:tabTextColor="#5a5a5a"
+        app:tabSelectedTextColor="#323333"
+        app:tabBackground="@drawable/bg_recommend_category_tab_bg_selecter"
+        app:tabIndicatorColor="#ffffff"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable">
+    </android.support.design.widget.TabLayout>
+
+
+    <FrameLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:clipChildren="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ffffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/block_canary_icon"/>
+    </FrameLayout>
+
+</RelativeLayout>

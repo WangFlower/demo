@@ -36,6 +36,8 @@ public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBar
         b = (SeekBar) findViewById(R.id.b);
         b.setOnSeekBarChangeListener(this);
         colorMatrixImageView = (ColorMatrixImageView) findViewById(R.id.ssss);
+
+
     }
 
     @Override

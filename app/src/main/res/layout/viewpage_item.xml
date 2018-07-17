@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <ImageView
+        android:id="@+id/imageLayout_Image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/ball" />
+    <TextView
+        android:id="@+id/imageLayout_Title"
+        android:textColor="@color/background_normal"
+        android:layout_width="200dp"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"/>
+</RelativeLayout>

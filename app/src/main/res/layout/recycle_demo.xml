@@ -5,33 +5,34 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cusom_swipe_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
 
 
 
-    <RelativeLayout
-        android:id="@+id/goto_record_layout"
-        android:layout_width="match_parent"
-        android:layout_height="176dp"
-        android:background="@drawable/bg_music_info_goto_record_layout"
-        android:layout_alignParentBottom="true">
 
-        <TextView
-            android:id="@+id/goto_record_btn"
-            android:layout_width="140dp"
-            android:layout_height="55dp"
-            android:textSize="15.5sp"
-            android:textColor="@color/white"
-            android:letterSpacing="0.04"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="45dp"
-            android:background="@drawable/bg_music_info_goto_record_btn"
-            android:text="拍同款" />
+    <TextView
+        android:id="@+id/profile_tv_start_chat_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:text="对话" />
 
-    </RelativeLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/profile_tv_start_chat_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:ellipsize="end"
+        android:text="对话" />
+
 
 
 </RelativeLayout>
