@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.demo;
+package com.example.momo.myapplication.demo.others;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

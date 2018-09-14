@@ -7,28 +7,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.momo.myapplication.demo.DemoAvtivity;
-import com.example.momo.myapplication.demo.ImageCropDemoActivity;
-import com.example.momo.myapplication.demo.LottieDemoActivity;
-import com.example.momo.myapplication.demo.PickViewActivity;
-import com.example.momo.myapplication.demo.RecyclerDemo;
-import com.example.momo.myapplication.demo.RxDemoActivity;
-import com.example.momo.myapplication.demo.ViewDemoActivity;
-import com.example.momo.myapplication.demo.ViewPageDemoActivity;
+import com.example.momo.myapplication.demo.eventbus.EventBusDemoActivity;
+import com.example.momo.myapplication.demo.others.DemoAvtivity;
+import com.example.momo.myapplication.demo.others.ImageCropDemoActivity;
+import com.example.momo.myapplication.demo.others.LottieDemoActivity;
+import com.example.momo.myapplication.demo.others.PickViewActivity;
+import com.example.momo.myapplication.demo.others.RecyclerDemo;
+import com.example.momo.myapplication.demo.others.RxDemoActivity;
+import com.example.momo.myapplication.demo.others.ViewDemoActivity;
+import com.example.momo.myapplication.demo.others.ViewPageDemoActivity;
 import com.example.momo.myapplication.dragger.view.DraggerDemoActivity;
-import com.example.momo.myapplication.utils.UIUtils;
 import com.example.mrouter.compiler.MRouter;
 
 import java.util.ArrayList;
@@ -89,27 +86,8 @@ public class MainActivity extends Activity {
         data.add(new ItemModel("dragger", DraggerDemoActivity.class));
         data.add(new ItemModel("ViewPage", ViewPageDemoActivity.class));
         data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
-        data.add(new ItemModel("view demo",ViewDemoActivity.class));
+        data.add(new ItemModel("EventBusDemoActivity",EventBusDemoActivity.class));
+
 
 
         MyAdapter adapter = new MyAdapter(data, this);

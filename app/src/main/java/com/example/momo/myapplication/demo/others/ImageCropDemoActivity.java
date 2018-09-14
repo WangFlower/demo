@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.demo;
+package com.example.momo.myapplication.demo.others;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

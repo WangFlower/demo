@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.demo;
+package com.example.momo.myapplication.demo.others;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,12 +7,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.utils.UIUtils;

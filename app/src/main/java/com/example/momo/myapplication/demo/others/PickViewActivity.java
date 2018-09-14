@@ -1,6 +1,5 @@
-package com.example.momo.myapplication.demo;
+package com.example.momo.myapplication.demo.others;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import com.example.momo.myapplication.BaseActivity;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.view.PageIndicatorView;
 import com.example.momo.myapplication.view.PageRecyclerView;
-import com.example.mrouter.compiler.MRouter;
 
 import java.util.ArrayList;
 import java.util.List;

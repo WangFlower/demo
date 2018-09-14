@@ -1,4 +1,4 @@
-package com.example.momo.myapplication.demo;
+package com.example.momo.myapplication.demo.others;
 
 import android.animation.ValueAnimator;
 import android.media.Image;

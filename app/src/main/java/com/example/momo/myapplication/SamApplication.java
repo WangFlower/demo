@@ -2,6 +2,7 @@ package com.example.momo.myapplication;
 
 import android.app.Application;
 
+import com.example.momo.myapplication.demo.eventbus.EnentThread;
 import com.github.moduth.blockcanary.BlockCanary;
 
 /**
@@ -16,5 +17,6 @@ public class SamApplication extends Application {
         BlockCanary.install(this, new MOMOBlockCanaryContext()).start();
         LooperMonitorHelper.start();
         ActivityThreadHookHelper.doHookActivityStart();
+        new EnentThread().start();
     }
 }

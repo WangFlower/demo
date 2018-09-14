@@ -52,15 +52,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".demo.DemoAvtivity" />
-        <activity android:name=".demo.RxDemoActivity" />
-        <activity android:name=".demo.PickViewActivity" />
-        <activity android:name=".demo.RecyclerDemo" />
-        <activity android:name=".demo.ImageCropDemoActivity" />
-        <activity android:name=".demo.ViewPageDemoActivity" />
-        <activity android:name=".demo.LottieDemoActivity" />
+        <activity android:name=".demo.others.DemoAvtivity" />
+        <activity android:name=".demo.others.RxDemoActivity" />
+        <activity android:name=".demo.others.PickViewActivity" />
+        <activity android:name=".demo.others.RecyclerDemo" />
+        <activity android:name=".demo.others.ImageCropDemoActivity" />
+        <activity android:name=".demo.others.ViewPageDemoActivity" />
+        <activity android:name=".demo.others.LottieDemoActivity" />
         <activity android:name="com.example.momo.myapplication.dragger.view.DraggerDemoActivity" />
-        <activity android:name=".demo.ViewDemoActivity"/>
+        <activity android:name=".demo.others.ViewDemoActivity"/>
+        <activity android:name=".demo.eventbus.EventBusDemoActivity" />
 
     </application>
 
