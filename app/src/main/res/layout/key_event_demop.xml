@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.momo.myapplication.view.KeyLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <com.example.momo.myapplication.view.KeyView
+       android:id="@+id/keyview"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:background="@color/colorAccent"/>
+
+   <Button
+       android:id="@+id/btn"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:text="click"/>
+
+</com.example.momo.myapplication.view.KeyLinearLayout>

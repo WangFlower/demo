@@ -62,6 +62,7 @@
         <activity android:name="com.example.momo.myapplication.dragger.view.DraggerDemoActivity" />
         <activity android:name=".demo.others.ViewDemoActivity"/>
         <activity android:name=".demo.eventbus.EventBusDemoActivity" />
+        <activity android:name=".demo.others.KeyEventDemoActivity" />
 
     </application>
 

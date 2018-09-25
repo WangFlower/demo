@@ -17,6 +17,6 @@ public class SamApplication extends Application {
         BlockCanary.install(this, new MOMOBlockCanaryContext()).start();
         LooperMonitorHelper.start();
         ActivityThreadHookHelper.doHookActivityStart();
-        new EnentThread().start();
+//        new EnentThread().start();
     }
 }
