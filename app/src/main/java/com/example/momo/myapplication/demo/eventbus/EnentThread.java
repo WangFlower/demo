@@ -12,7 +12,7 @@ public class EnentThread extends Thread{
     public void run() {
         while (true){
 
-            if(i>100000){
+            if(i>100){
                 i=0;
             }
             i++;
