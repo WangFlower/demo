@@ -1,4 +1,4 @@
-package com.example.lib;
+package com.example.lib.thread;
 
 import java.util.Collections;
 import java.util.HashSet;

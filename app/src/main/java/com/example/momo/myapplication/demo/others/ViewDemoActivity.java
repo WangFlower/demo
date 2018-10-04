@@ -1,6 +1,7 @@
 package com.example.momo.myapplication.demo.others;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -71,6 +72,10 @@ public class ViewDemoActivity extends BaseActivity{
         layoutParams.width = width;
         v.setLayoutParams(layoutParams);
         v.requestLayout();
+    }
+
+    private void handle(){
+        Handler handler = new Handler();
     }
 
 }

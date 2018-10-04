@@ -21,6 +21,7 @@ import com.example.momo.myapplication.demo.others.RecyclerDemo;
 import com.example.momo.myapplication.demo.others.RxDemoActivity;
 import com.example.momo.myapplication.demo.others.ViewDemoActivity;
 import com.example.momo.myapplication.demo.others.ViewPageDemoActivity;
+import com.example.momo.myapplication.demo.retrofit.RetrofitDemoActivity;
 import com.example.momo.myapplication.dragger.view.DraggerDemoActivity;
 import com.example.mrouter.compiler.MRouter;
 
@@ -42,6 +43,8 @@ public class MainActivity extends Activity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         List<ItemModel> data = new ArrayList<>();
+
+        data.add(new ItemModel("RetrofitDemo", RetrofitDemoActivity.class));
         data.add(new ItemModel("图片颜色处理", DemoAvtivity.class));
         data.add(new ItemModel("Rx demo", RxDemoActivity.class));
         data.add(new ItemModel("lottie", LottieDemoActivity.class));

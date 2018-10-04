@@ -63,6 +63,7 @@
         <activity android:name=".demo.others.ViewDemoActivity"/>
         <activity android:name=".demo.eventbus.EventBusDemoActivity" />
         <activity android:name=".demo.others.KeyEventDemoActivity" />
+        <activity android:name=".demo.retrofit.RetrofitDemoActivity" />
 
     </application>
 
