@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/android_datastate/android_datastate.iml" filepath="$PROJECT_DIR$/android_datastate/android_datastate.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cleveradapter/cleveradapter.iml" filepath="$PROJECT_DIR$/cleveradapter/cleveradapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datastate_processor/datastate_processor.iml" filepath="$PROJECT_DIR$/datastate_processor/datastate_processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpdns/httpdns.iml" filepath="$PROJECT_DIR$/httpdns/httpdns.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
