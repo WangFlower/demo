@@ -3,6 +3,7 @@ package com.example.momo.myapplication.demo.others;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.SeekBar;
 
 import com.example.momo.myapplication.R;
@@ -36,8 +37,48 @@ public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBar
         b = (SeekBar) findViewById(R.id.b);
         b.setOnSeekBarChangeListener(this);
         colorMatrixImageView = (ColorMatrixImageView) findViewById(R.id.ssss);
+        r.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("wangrenguang","1000");
+            }
+        },1000);
+
+        r.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("wangrenguang","5000");
+            }
+        },5000);
+
+        r.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("wangrenguang","10000");
+            }
+        },10000);
+
+        r.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("wangrenguang","15000");
+            }
+        },15000);
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("wangrenguang","onResume");
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("wangrenguang","onDestroy");
     }
 
     @Override

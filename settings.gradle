@@ -1,1 +1,1 @@
-include ':app', ':httpdns', ':mrouter_processor', ':mrouter_compiler', ':lib'
+include ':app', ':httpdns', ':mrouter_processor', ':mrouter_compiler', ':lib', ':cleveradapter'
