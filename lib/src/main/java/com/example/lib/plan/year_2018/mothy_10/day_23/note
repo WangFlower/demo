@@ -6,7 +6,7 @@
   题目大意
   　　有两个单链表，代表两个非负数，每一个节点代表一个数位，数字是反向存储的，即第一个结点表示最低位，最后一个结点表示最高位。求两个数的相加和，并且以链表形式返回。
 
-2.hashMap 与 hashtable
+2.java 中链表
 
 3.sort
 https://blog.csdn.net/lyhkmm/article/details/78920769
