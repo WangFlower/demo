@@ -12,7 +12,6 @@
       <module fileurl="file://$PROJECT_DIR$/mrouter_compiler/mrouter_compiler.iml" filepath="$PROJECT_DIR$/mrouter_compiler/mrouter_compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/mrouter_processor/mrouter_processor.iml" filepath="$PROJECT_DIR$/mrouter_processor/mrouter_processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/upload/upload.iml" filepath="$PROJECT_DIR$/upload/upload.iml" />
-      <module fileurl="file://$PROJECT_DIR$/upload/upload.iml" filepath="$PROJECT_DIR$/upload/upload.iml" />
     </modules>
   </component>
 </project>
