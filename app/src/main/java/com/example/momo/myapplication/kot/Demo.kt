@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Button
 import com.airbnb.lottie.animation.keyframe.IntegerKeyframeAnimation
 import java.io.BufferedReader
+import java.io.File
 import java.lang.NumberFormatException
 import java.util.*
 import kotlin.collections.AbstractCollection
@@ -185,9 +186,39 @@ class Demo {
         val age = User::age
 
         println("age= $age")
+        val people = listOf(User("ss",1),User("sss",2))
+
+        people.map(User::name)
+        people.map(){
+            user:User->user.name
+        }
+
+        people.filter { it.age>30 }.map(User::name)
+
+        people.filter { it.age == people.maxBy(User::age)!!.age }
+
+
+        val canBeInClub27 = { u:User->u.age<=27}
+
+        people.all(canBeInClub27)
+
+        people.any(canBeInClub27)
+
+        people.asSequence().map(User::name).filter{it.startsWith("A")}.toList()
+
+
+
+        val naturalNumber = generateSequence(0) { it+1 }
+        // 100以内的自然数和
+        val numbbers100 = naturalNumber.takeWhile { it<=100 }
+
 
 
     }
+
+    fun File.isInsideHiddenDirectory() = generateSequence(this){it.parentFile}.any();
+
+
 
 
 

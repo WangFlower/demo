@@ -8,4 +8,11 @@ sealed class SealedDemo{
 
     class Num(val value:Int) : SealedDemo()
 
+
+
+    fun a(sealedDemo: SealedDemo)= when(sealedDemo){
+        is Num -> println("")
+    }
+
+
 }

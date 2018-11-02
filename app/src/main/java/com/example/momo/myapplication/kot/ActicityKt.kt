@@ -54,7 +54,22 @@ class ActicityKt : Activity() {
 
         val age2 = User("ss",21).age
 
+
+        view.post { print("sss") }
+
+
+        val user = User("",22)
+//        val (name,age) = User
+
     }
+
+    // 延迟加载  第一次访问后会缓存值
+    val lazyValue : String by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        println("")
+        "hello"
+    }
+
+
 
 
     fun message(message: Collection<String>, prefix: String) {
@@ -63,4 +78,45 @@ class ActicityKt : Activity() {
         }
 
     }
+
+    /**
+     * with --->build
+     */
+    fun alphabet():String{
+
+        val x = demo()
+
+        val stringBuffer = StringBuffer()
+        return with(stringBuffer){
+            for(letter in 'A'..'z'){
+                this.append(letter)
+            }
+            append("end")
+            this.toString()
+        }
+    }
+
+    fun demo():Int?{
+        return null
+    }
+
+    fun demo2(st:Source<String>){
+        val obs:Source<Any> = st
+    }
+
+
+    interface Source<out T>{
+        fun nextT():T
+    }
+
+
+    // 重载操作符demo
+    data class Point(val x:Int,val y:Int)
+    operator fun Point.unaryMinus() = Point(-x,-y)
+    val point = Point(-1,-1)
+    val p = -point
+
+
+
+
 }

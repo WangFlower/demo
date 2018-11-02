@@ -15,6 +15,11 @@ fun User.validate() {
 
 class User(val name: String, val age: Int) {
 
+    constructor(i:Int) : this("",i){
+        println("")
+
+    }
+
     fun saveUser(user: User) {
         user.validate()
     }
