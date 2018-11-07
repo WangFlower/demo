@@ -1,0 +1,17 @@
+2.1.1
+Remove Duplicates from Sorted Array:
+
+Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+For example, Given input array A = [1,1,2],
+Your function should return length = 2, and A is now [1,2].
+给定排序的数组，删除重复的位置，这样每个元素只出现一次并返回新的长度。
+
+不要为另一个数组分配额外的空间，必须在常量内存中这样做。
+
+例如，给定的输入数组A＝[1,1,2]，
+
+你的函数应该返回长度＝2，而A现在是[1，2]。
+
+
+
