@@ -23,6 +23,7 @@ import com.example.momo.myapplication.demo.others.ViewDemoActivity;
 import com.example.momo.myapplication.demo.others.ViewPageDemoActivity;
 import com.example.momo.myapplication.demo.retrofit.RetrofitDemoActivity;
 import com.example.momo.myapplication.dragger.view.DraggerDemoActivity;
+import com.example.momo.myapplication.kot.demo.TaskActivity;
 import com.example.mrouter.compiler.MRouter;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class MainActivity extends Activity {
         data.add(new ItemModel("view demo",ViewDemoActivity.class));
         data.add(new ItemModel("EventBusDemoActivity",EventBusDemoActivity.class));
         data.add(new ItemModel("KeyEventDemoActivity",KeyEventDemoActivity.class));
-
+        data.add(new ItemModel("KT",TaskActivity.class));
 
         MyAdapter adapter = new MyAdapter(data, this);
         recyclerView.setAdapter(adapter);

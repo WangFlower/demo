@@ -1,14 +1,12 @@
 package com.example.momo.myapplication.kot
 
-import kotlinx.coroutines.experimental.*
-import kotlinx.coroutines.experimental.android.Main
-import kotlinx.coroutines.experimental.channels.Channel
-import kotlinx.coroutines.experimental.channels.ReceiveChannel
-import kotlinx.coroutines.experimental.channels.produce
-import kotlinx.coroutines.experimental.channels.ticker
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.channels.produce
+import kotlinx.coroutines.channels.ticker
 import java.io.IOException
 import java.lang.IllegalArgumentException
-import kotlin.coroutines.experimental.coroutineContext
 import kotlin.system.measureTimeMillis
 
 
@@ -295,7 +293,6 @@ class Demo2 {
 
     fun main10() = runBlocking {
         val handler = CoroutineExceptionHandler { _, exception ->
-            println("Caught $exception with suppressed ${exception.suppressed.contentToString()}")
         }
         val job = GlobalScope.launch(handler) {
             launch {

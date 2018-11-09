@@ -2,12 +2,10 @@ package com.example.momo.myapplication.kot
 
 import android.app.Activity
 import android.os.Bundle
-import android.os.Message
 import android.view.View
 import android.widget.LinearLayout
-import kotlinx.coroutines.experimental.*
-import kotlinx.coroutines.experimental.android.Main
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 class ActicityKt : Activity(), CoroutineScope {
 

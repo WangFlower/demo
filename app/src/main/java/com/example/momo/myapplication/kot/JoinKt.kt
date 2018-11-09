@@ -1,6 +1,9 @@
 package com.example.momo.myapplication.kot
 
+import kotlinx.coroutines.*
 import java.lang.StringBuilder
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 
 
 val UNN = "sss"
@@ -11,9 +14,9 @@ fun <T> Collection<T>.jojnToString(
         prefix: String = "",
         postFix: String = ""): String =
 //    val result = StringBuffer(postFixrefix)
-    this.foldIndexed(StringBuilder(prefix)){index, acc,item->
-        acc.append(item)
-    }.toString()
+        this.foldIndexed(StringBuilder(prefix)) { index, acc, item ->
+            acc.append(item)
+        }.toString()
 //    for ((index, value) in this.withIndex()) {
 //        if (index > 0) result.append(separator)
 //        result.append(value)
@@ -33,15 +36,22 @@ var StringBuffer.lastChat: Char
     }
 
 // 中缀关键字infix
-infix fun <A,B> A.cao(that:B) :Pair<A,B> = Pair(this,that)
+infix fun <A, B> A.cao(that: B): Pair<A, B> = Pair(this, that)
 
 // 中缀关键字infix
-public infix fun <A,B> A.mmm(that:B) :Pair<A,B> = Pair(this,that)
+public infix fun <A, B> A.mmm(that: B): Pair<A, B> = Pair(this, that)
 
-infix fun Any.tooo(that: Any)= Pair(this,that)
 
-fun Any?.toString():String{
-    if(this==null) return "null"
+
+
+
+
+//infix fun <T> T.taskNow()
+//
+infix fun Any.tooo(that: Any) = Pair(this, that)
+
+fun Any?.toString(): String {
+    if (this == null) return "null"
     return this.toString()
 }
 

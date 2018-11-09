@@ -12,7 +12,7 @@ class Student {
 }
 
 class Student2 {
-    //    var name:String by Delegates.observable()
+//        var name:String
     fun demo() {
         val s = Student().apply {
             name = "Mikyou"
