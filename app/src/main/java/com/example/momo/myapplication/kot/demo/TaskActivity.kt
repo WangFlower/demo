@@ -6,10 +6,10 @@ import android.util.Log
 import android.widget.TextView
 import com.example.momo.myapplication.R
 import com.example.momo.myapplication.SDispatchers
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import kotlinx.coroutines.*
+import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
+import kotlin.coroutines.startCoroutine
 import kotlin.coroutines.suspendCoroutine
 
 /**
@@ -19,24 +19,18 @@ import kotlin.coroutines.suspendCoroutine
 class TaskActivity : Activity() {
 
     lateinit var textView: TextView
+    var job: Job = Job()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.task)
         textView = findViewById(R.id.textview)
-        login()
+        job = login()
     }
 
-    fun login() = GlobalScope.async {
-        val userInfo = getUserInfo()
-        val friend = getFriend()
-
-        userInfo.await()
-
-        friend.await()
-
-        val loginout = loginOut2().await()
+    fun login() = GlobalScope.async(Dispatchers.Main+job) {
+        val loginout = loginOut().await()
         textView.text = loginout
 
     }
@@ -57,19 +51,51 @@ class TaskActivity : Activity() {
 //        }
 //    }
 
-
-    suspend fun loginOut2() = GlobalScope.async {
-        suspendCoroutine<String?> {
-            UserTask.loginOut(false,object :UserTask.Callback{
+    suspend fun loginOut() = GlobalScope.async(SDispatchers.bg) {
+        suspendCoroutineW<String?> {
+            UserTask.loginOut(false, object : UserTask.Callback {
                 override fun success() {
+                    it.resumeWith(Result.success("success"))
+                }
+
+                override fun callBack(result: String?) {
+                    it.test()
+                    it.resumeWith(Result.success(result))
+                }
+            })
+            it.resumeWith(Result.success("222"))
+        }
+
+    }
+
+
+    suspend fun loginOut2() = GlobalScope.async(SDispatchers.bg) {
+        suspendCoroutine<String?> {
+
+
+            UserTask.loginOut(false, object : UserTask.Callback {
+                override fun success() {
+                    Log.i("wangrenguang","----2")
                     it.resume("")
                 }
 
                 override fun callBack(result: String?) {
+//                    Log.i("wangrenguang","----3 "+it.isCancelled)
+                    Log.i("wangrenguang","----3 "+isActive)
                     it.resume(result)
                 }
             })
+//            Log.i("wangrenguang","----isCancelled:"+it.isCancelled)
+            Log.i("wangrenguang","----4"+isActive)
+//            it.resume("")
         }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
+
     }
 
 

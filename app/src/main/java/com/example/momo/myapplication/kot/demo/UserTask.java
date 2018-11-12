@@ -35,7 +35,7 @@ public class UserTask {
     }
 
     public static void loginOut(boolean tag,Callback callback) throws InterruptedException {
-        Thread.sleep(15000);
+//        Thread.sleep(15000);
         callback.callBack("loginOut");
     }
 
