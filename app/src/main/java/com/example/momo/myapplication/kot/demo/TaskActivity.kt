@@ -27,11 +27,13 @@ class TaskActivity : Activity() {
         setContentView(R.layout.task)
         textView = findViewById(R.id.textview)
         job = login()
+
     }
 
     fun login() = GlobalScope.async(Dispatchers.Main+job) {
         val loginout = loginOut().await()
         textView.text = loginout
+
 
     }
 
