@@ -8,7 +8,6 @@ import java.util.Map;
  */
 public class UploadTask extends Thread {
 
-
     private int id;
 
     private boolean needCancel = false;
@@ -22,8 +21,6 @@ public class UploadTask extends Thread {
     private Map<String,String> params;
 
     private int errorCode;
-
-
 
 
     @Override
