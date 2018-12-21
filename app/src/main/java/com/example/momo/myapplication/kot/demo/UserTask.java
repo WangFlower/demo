@@ -17,13 +17,11 @@ public class UserTask {
 
 
     public static UserInfo getUserInfo(){
-        Log.i("wangrenguang","getUserInfo  1");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Log.i("wangrenguang","getUserInfo  2");
         return new UserInfo();
     }
 

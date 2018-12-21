@@ -17,6 +17,7 @@ import org.reactivestreams.Subscription;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.BackpressureStrategy;
@@ -79,8 +80,45 @@ public class RxDemoActivity extends BaseActivity {
 
         //创建一个上游 Observable：
         demo10();
+        floDeme();
+    }
+
+    public void floDeme() {
+
+        new Thread() {
+
+
+            @Override
+            public void run() {
+                Log.i("wangrenguang", "1");
+                CountDownLatch downLatch = new CountDownLatch(1);
+
+                try {
+                    downLatch.await(3, TimeUnit.SECONDS);
+                    Log.i("wangrenguang", "3");
+                } catch (InterruptedException e) {
+                    Log.i("wangrenguang", "4");
+                    e.printStackTrace();
+
+                }
+
+                try {
+                    sleep(4000);
+                    Log.i("wangrenguang", "2");
+                    downLatch.countDown();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+                Log.i("wangrenguang", "5");
+            }
+        }.start();
+
 
     }
+
+
 
     public void flowableDemo() {
         // 登录的demo
