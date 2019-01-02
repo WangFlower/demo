@@ -41,25 +41,13 @@ public class SamList<T> {
 
     public boolean delete(T t) {
         Node temp = firstNode;
-        while (temp != null) {
-            if (temp == t) {
-                Node preNode = temp.pre;
-                Node nextNode = temp.next;
-                if (preNode != null) {
-                    preNode.next = nextNode;
-                }
-                if (nextNode != null) {
-                    nextNode.pre = preNode;
-                }
-                return true;
-            }
-            temp = temp.next;
-        }
         return false;
     }
 
     public boolean find(T t) {
 
+
+        return false;
     }
 
 
