@@ -1,1 +1,1 @@
-include ':app', ':httpdns', ':mrouter_processor', ':mrouter_compiler', ':lib', ':cleveradapter', ':android_datastate', ':datastate_processor', ':upload'
+include ':app', ':httpdns', ':mrouter_processor', ':mrouter_compiler', ':lib', ':cleveradapter', ':android_datastate', ':datastate_processor', ':upload', ':utils'

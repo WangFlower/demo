@@ -7,7 +7,7 @@ public class Test {
     public static int[] fun(int[] args, int result) {
 
         int temp;
-        HashMap<Integer, Integer> tempMap = new HashMap(args.length);
+        HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>(args.length);
 
         for (int i = 0; i < args.length; i++) {
             temp = result - args[i];
