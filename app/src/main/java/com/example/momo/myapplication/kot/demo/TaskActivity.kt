@@ -1,6 +1,7 @@
 package com.example.momo.myapplication.kot.demo
 
 import android.app.Activity
+import android.databinding.DataBindingUtil.setContentView
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -13,6 +14,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.startCoroutine
 import kotlin.coroutines.suspendCoroutine
+import kotlinx.android.synthetic.main.task.*
 
 /**
  * create time 2018/11/8
@@ -20,39 +22,12 @@ import kotlin.coroutines.suspendCoroutine
  */
 class TaskActivity : Activity() {
 
-    lateinit var textView: TextView
     var job: Job = Job()
 
-    inline fun <T> Sequence<T>.buffer(count: Int, action: (MutableList<T>) -> Unit) {
-        this.fold(mutableListOf<T>()) { acc, element ->
-            acc.add(element)
-            if (acc.size >= count) {
-                action(acc)
-                acc.clear()
-            }
-            acc
-        }.let { acc ->
-            if (acc.size > 0) {
-                action(acc)
-                acc.clear()
-            }
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.task)
-        textView = findViewById(R.id.textview)
-        Log.i("wangrenguang", "----1---")
-
-        aa()
-        Log.i("wangrenguang", "----2---")
-
-        val array = IntArray(10) { it }
-        val oae: Map<Int, List<Int>> = array.groupBy {
-            it and 1
-        }
-
-        oae.forEach { key, value -> println("$key -> $value") }
+        sam.text = "hahahha"
     }
 
     fun a() {
@@ -89,7 +64,6 @@ class TaskActivity : Activity() {
     fun login() = GlobalScope.async(Dispatchers.Main + job) {
         Log.i("wangrenguang", "---login----")
         val loginout = loginOut().await()
-        textView.text = loginout
 
 
     }
