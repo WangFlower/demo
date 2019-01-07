@@ -7,6 +7,12 @@ package com.example.lib.plan.year_2019.mothy_01.day_06;
 public class Test {
 
 
+    /**
+     * 分治算法
+     *
+     * @param s
+     * @return
+     */
     public static String fun(String s) {
 
         int l = 0;
