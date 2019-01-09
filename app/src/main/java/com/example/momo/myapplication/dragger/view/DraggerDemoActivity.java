@@ -22,7 +22,6 @@ public class DraggerDemoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Glide.with(this).load("").into(new ImageView(this));
     }
 }
