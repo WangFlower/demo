@@ -25,6 +25,7 @@ cache.get(4);       // 返回  4
 
 
 2.
+https://blog.csdn.net/afei__/article/details/85058158
 
 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
 

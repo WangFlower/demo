@@ -15,7 +15,7 @@ public class Test3 {
 
         int count;
         while (temp1!=null){
-            count = temp1 * no
+//            count = temp1 * no
 
             if(result==null){
                 result = new Node();
