@@ -2,7 +2,7 @@ package com.example.lib.designmode.proxy.dynamic;
 
 public class DynamicProxyDemo {
 
-    public static void main(String[] a){
+    public void main(String[] a) {
 
 
         MacHuangNiu macHuangNiu = new MacHuangNiu();

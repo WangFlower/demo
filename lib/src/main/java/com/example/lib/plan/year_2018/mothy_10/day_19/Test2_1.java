@@ -73,7 +73,7 @@ public class Test2_1 {
     }
 
 
-    public static void main(String[] a) {
+    public void main(String[] a) {
         Test2_1 t = new Test2_1();
         t.start();
     }

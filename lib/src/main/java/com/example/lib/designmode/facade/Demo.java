@@ -18,7 +18,7 @@ package com.example.lib.designmode.facade;
  */
 public class Demo {
 
-    public static void main(String[] a){
+    public void main(String[] a) {
 
         //在不使用外观模式的情况下，需要对每个系统都进行操作
         SystemA systemA = new SystemA();

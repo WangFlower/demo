@@ -66,6 +66,9 @@
         <activity android:name=".demo.retrofit.RetrofitDemoActivity" />
         <activity android:name=".ipc.IPCDemoActivity" />
         <activity android:name=".kot.demo.TaskActivity" />
+        <activity android:name=".demo.eventbus.EventBusDemo2Activity" />
+        <activity android:name=".demo.others.TouchDemoActivity" />
+        <activity android:name=".demo.others.StateDemoActivity" />
 
         <service android:name=".ipc.BookService" />
     </application>

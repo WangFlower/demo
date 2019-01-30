@@ -67,8 +67,4 @@ public class CompletionDemo {
         }
     }
 
-
-    public static void main(String[] a) {
-
-    }
 }

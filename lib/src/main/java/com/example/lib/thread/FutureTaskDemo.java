@@ -29,7 +29,7 @@ public class FutureTaskDemo {
         return futureTask.get(var1,var3);
     }
 
-    public static void main(String[] a){
+    public void main(String[] a) {
         FutureTaskDemo futureTaskDemo = new FutureTaskDemo();
         System.out.println("start before");
         futureTaskDemo.start();

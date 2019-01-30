@@ -13,7 +13,7 @@ import dagger.Component;
 @Component(modules = MainModule.class)
 public interface MainComponent {
 
-    void inject(Main main);
+    void inject(MainDemo mainDemo);
 
-    void a(Main main);
+    void a(MainDemo mainDemo);
 }

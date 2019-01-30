@@ -30,7 +30,7 @@ public class StaticProxyDemo {
         }
     }
 
-    public static void main(String[] args){
+    public void main(String[] args) {
         Student proxy = new Proxy();
         proxy.buyMac();
     }

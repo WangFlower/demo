@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.datastate_processor.State;
 import com.example.momo.myapplication.demo.eventbus.EventBusDemoActivity;
 import com.example.momo.myapplication.demo.others.DemoAvtivity;
 import com.example.momo.myapplication.demo.others.ImageCropDemoActivity;
@@ -19,6 +20,7 @@ import com.example.momo.myapplication.demo.others.LottieDemoActivity;
 import com.example.momo.myapplication.demo.others.PickViewActivity;
 import com.example.momo.myapplication.demo.others.RecyclerDemo;
 import com.example.momo.myapplication.demo.others.RxDemoActivity;
+import com.example.momo.myapplication.demo.others.TouchDemoActivity;
 import com.example.momo.myapplication.demo.others.ViewDemoActivity;
 import com.example.momo.myapplication.demo.others.ViewPageDemoActivity;
 import com.example.momo.myapplication.demo.retrofit.RetrofitDemoActivity;
@@ -34,6 +36,22 @@ import java.util.List;
  */
 @MRouter("[main]")
 public class MainActivity extends Activity {
+
+
+    @State
+    public int a = 0;
+    @State
+    public String name;
+    @State
+    public String[] names;
+    @State
+    private String priName;
+
+    @State
+    String defName;
+
+    @State
+    protected String proName;
 
 
     @Override
@@ -58,6 +76,7 @@ public class MainActivity extends Activity {
         data.add(new ItemModel("EventBusDemoActivity",EventBusDemoActivity.class));
         data.add(new ItemModel("KeyEventDemoActivity",KeyEventDemoActivity.class));
         data.add(new ItemModel("KT",TaskActivity.class));
+        data.add(new ItemModel("TouchDemoActivity", TouchDemoActivity.class));
 
         MyAdapter adapter = new MyAdapter(data, this);
         recyclerView.setAdapter(adapter);

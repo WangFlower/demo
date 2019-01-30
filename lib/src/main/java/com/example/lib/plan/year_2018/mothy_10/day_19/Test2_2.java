@@ -79,8 +79,7 @@ public class Test2_2 {
     }
 
 
-
-    public static void main(String[] a) {
+    public void main(String[] a) {
         Test2_2 t = new Test2_2();
         t.start();
     }

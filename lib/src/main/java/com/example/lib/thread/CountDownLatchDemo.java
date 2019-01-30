@@ -44,7 +44,7 @@ public class CountDownLatchDemo {
         return end - start;
     }
 
-    public static void main(String[] a){
+    public void main(String[] a) {
         CountDownLatchDemo countDownLatchDemo = new CountDownLatchDemo();
         try {
             countDownLatchDemo.timeTask(5, new Runnable() {

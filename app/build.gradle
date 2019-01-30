@@ -30,10 +30,17 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             moduleName "sam"
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+                arguments = [ eventBusIndex : 'com.example.momo.MyEventBusIndex' ]
+            }
         }
     }
     buildTypes {
@@ -92,6 +99,9 @@ dependencies {
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$kotlin_coroutines_version"
+    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
+    implementation project(path: ':android_datastate')
+    compile project(path: ':datastate_processor')
 }
 repositories {
     mavenCentral()

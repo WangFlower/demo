@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.momo.myapplication.SamEventBus;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -21,7 +23,7 @@ public class EventBusDemoActivity extends AppCompatActivity{
     }
 
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true, priority = 1)
     public void onMessageEvent(MessageEvent event){
         Log.i("wangrenguang","onMessageEvent:"+event.toString()+""+Thread.currentThread().getName());
     }
