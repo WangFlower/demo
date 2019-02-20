@@ -2,8 +2,13 @@ package com.example.datastate_processor;
 
 import com.google.auto.service.AutoService;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,6 +23,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
@@ -95,35 +101,44 @@ public class StateProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         // 获得所有被State 注解的元素
-        final Set<Element> allFields = new HashSet<>(roundEnvironment.getElementsAnnotatedWith(State.class));
-        // TODO kotlin
+        final Set<VariableElement> allFields = new HashSet<>();
 
-        for (Element element : allFields) {
+
+        for (Element element : roundEnvironment.getElementsAnnotatedWith(State.class)) {
             if (!isValid(element)) {
                 messager.printMessage(Diagnostic.Kind.ERROR, "Field is not valid!", element);
                 return true;
             }
+            allFields.add((VariableElement) element);
+        }
+        // TODO kotlin
+
+
+        Map<TypeElement, Set<VariableElement>> classes = new HashMap<>();
+        for (VariableElement element : allFields) {
+            TypeElement classElement = (TypeElement) element.getEnclosingElement();
+
+            Set<VariableElement> elements = classes.get(classElement);
+            if (elements == null) {
+                elements = new HashSet<>();
+            }
+            elements.add(element);
+            classes.put(classElement, elements);
         }
 
-
-        Map<Element, Set<Element>> classes = getClassElements(allFields);
-        Set<Element> classElements = classes.keySet();
-        for (Element classElement : classElements) {
-            Element temp = getPrivateClass(classElement);
-            if (temp != null) {
-                messager.printMessage(Diagnostic.Kind.ERROR, "Class must not be private", temp);
+        Set<TypeElement> classElements = classes.keySet();
+        for (TypeElement classElement : classElements) {
+            if (classElement.getModifiers().contains(Modifier.PRIVATE)) {
+                messager.printMessage(Diagnostic.Kind.ERROR, "Class must not be private", classElement);
                 return true;
             }
         }
 
-        for (Element classElemet : classElements) {
-            final Element packageElement = getElement(classElemet, ElementKind.PACKAGE);
-            String packageName = packageElement.asType().toString();
-            if ("package".equals(packageName)) {
-                // TOOD
-            }
-
-            final String className = getClassName(classElemet);
+        for (TypeElement classElemet : classElements) {
+            final List<VariableElement> fields = sortedFileds(classes.get(classElemet));
+            String packageName = mUtils.getPackageOf(classElemet).getQualifiedName().toString();
+            String className = classElemet.getQualifiedName().toString().substring(
+                    packageName.length() + 1).replace('.', '$');
             final boolean isView = isAssignable(classElemet, "android.view.View");
 
         }
@@ -136,7 +151,6 @@ public class StateProcessor extends AbstractProcessor {
     private boolean isValid(Element element) {
         // 变量修饰范围
         Set<Modifier> set = element.getModifiers();
-        log("" + element.asType());
         if (set.contains(Modifier.STATIC)
                 || set.contains(Modifier.FINAL)) {
             messager.printMessage(Diagnostic.Kind.NOTE, "Field can not be static or final", element);
@@ -153,11 +167,11 @@ public class StateProcessor extends AbstractProcessor {
     }
 
 
-    private Map<Element, Set<Element>> getClassElements(Set<Element> allFields) {
-        Map<Element, Set<Element>> result = new HashMap<>();
-        for (Element element : allFields) {
-            Element classElement = getElement(element, ElementKind.CLASS);
-            Set<Element> elements = result.get(classElement);
+    private Map<TypeElement, Set<VariableElement>> getClassElements(Set<VariableElement> allFields) {
+        Map<TypeElement, Set<VariableElement>> result = new HashMap<>();
+        for (VariableElement element : allFields) {
+            TypeElement classElement = (TypeElement) element.getEnclosingElement();
+            Set<VariableElement> elements = result.get(classElement);
             if (elements == null) {
                 elements = new HashSet<>();
             }
@@ -195,6 +209,17 @@ public class StateProcessor extends AbstractProcessor {
         return className.toString();
     }
 
+    private List<VariableElement> sortedFileds(Collection<VariableElement> fileds) {
+        List<VariableElement> result = new ArrayList<>(fileds);
+        Collections.sort(result, new Comparator<VariableElement>() {
+            @Override
+            public int compare(VariableElement variableElement, VariableElement t1) {
+                return variableElement.getSimpleName().toString().compareTo(t1.getSimpleName().toString());
+            }
+        });
+        return result;
+    }
+
     private boolean isAssignable(Element element, String className) {
         return isAssignable(element.asType(), className);
     }
@@ -203,8 +228,4 @@ public class StateProcessor extends AbstractProcessor {
         return mTypeUtils.isAssignable(typeMirror, mUtils.getTypeElement(className).asType());
     }
 
-
-    private void log(String m) {
-        messager.printMessage(Diagnostic.Kind.NOTE, m);
-    }
 }

@@ -47,10 +47,8 @@ public class MainActivity extends Activity {
     @State
     private String priName;
 
-    @State
     String defName;
 
-    @State
     protected String proName;
 
 
@@ -141,7 +139,5 @@ public class MainActivity extends Activity {
             this.text = text;
             this.alass = c;
         }
-
-
     }
 }

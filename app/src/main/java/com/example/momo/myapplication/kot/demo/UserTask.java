@@ -5,6 +5,8 @@ import android.util.Log;
 
 import org.jetbrains.annotations.Nullable;
 
+import kotlinx.coroutines.Deferred;
+
 /**
  * create time 2018/11/8
  * by momo
@@ -18,6 +20,8 @@ public class UserTask {
 
     public static UserInfo getUserInfo(){
         try {
+            KT kt = new KT();
+            Deferred deferred = kt.test();
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();

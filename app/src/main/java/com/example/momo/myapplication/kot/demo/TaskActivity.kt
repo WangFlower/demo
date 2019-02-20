@@ -28,7 +28,52 @@ class TaskActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.task)
         sam.text = "hahahha"
+        test()
+
+//        test2()
     }
+
+
+    fun test() {
+        GlobalScope.async(Dispatchers.Main) {
+            Log.i("wangrenguang", "test----1---" + Thread.currentThread().name)
+            val info = useTime().await()
+            Log.i("wangrenguang", "test----2---" + Thread.currentThread().name)
+            val kt = KT()
+            val k = kt.test().await()
+            Log.i("wangrenguang", "test----3---$k")
+            Log.i("wangrenguang", "test----4---" + Thread.currentThread().name)
+            Log.i("wangrenguang", "test----5---" + Thread.currentThread().name)
+
+        }
+    }
+
+
+    fun test2() {
+        GlobalScope.async(Dispatchers.Main) {
+            Log.i("wangrenguang", "test2----1---" + Thread.currentThread().name)
+            val info = useTime().await()
+            Log.i("wangrenguang", "test2----2---" + Thread.currentThread().name)
+
+        }
+    }
+
+
+    suspend fun useTime() = GlobalScope.async(SDispatchers.bg) {
+        Log.i("wangrenguang", "useTime------1-" + Thread.currentThread().name)
+        UserTask.getUserInfo()
+        Log.i("wangrenguang", "useTime------2-" + Thread.currentThread().name)
+    }
+
+
+
+
+
+
+
+
+
+
 
     fun a() {
         val handler = CoroutineExceptionHandler { _, exception ->

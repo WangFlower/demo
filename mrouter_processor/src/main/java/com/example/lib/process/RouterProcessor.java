@@ -69,11 +69,11 @@ public class RouterProcessor extends AbstractProcessor {
         JavaFile javaFile = JavaFile.builder("com.example.momo.myapplication", helloWorld)
                                     .build();
 
-        try {
-            javaFile.writeTo(processingEnv.getFiler());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            javaFile.writeTo(processingEnv.getFiler());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         return true;
     }
