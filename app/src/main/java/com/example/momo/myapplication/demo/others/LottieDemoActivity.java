@@ -26,37 +26,23 @@ public class LottieDemoActivity extends BaseActivity {
         setContentView(R.layout.lottie_demo);
         layout = findViewById(R.id.layout);
 
-        final ImageView imageView = findViewById(R.id.imageview);
 
         lottieAnimationView = (LottieAnimationView) findViewById(R.id.loadingview);
-        lottieAnimationView.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Log.i("wangrenguang","onAnimationUpdate");
-            }
-        });
 
 //        lottieAnimationView.setImageAssetsFolder("lottie/images");
 //        lottieAnimationView.setAnimation("lottie/s.json");
 //        lottieAnimationView.loop(true);
 //        lottieAnimationView.playAnimation();
 
-        try {
-            Thread.sleep(100000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageView.setBackgroundResource(R.drawable.oval_7);
-                lottieAnimationView.setAnimation("lottie/animation-w286-h430.json");
-                lottieAnimationView.setVisibility(View.VISIBLE);
-                lottieAnimationView.loop(true);
-                lottieAnimationView.playAnimation();
-            }
-        });
+//        layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                lottieAnimationView.setAnimation("lottie/animation-w286-h430.json");
+//                lottieAnimationView.setVisibility(View.VISIBLE);
+//                lottieAnimationView.loop(true);
+//                lottieAnimationView.star();
+//            }
+//        });
 
     }
 }
