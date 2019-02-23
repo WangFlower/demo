@@ -15,5 +15,6 @@ public class GitTest {
         Log.i("wangrenguang", "onOffsetChanged wang2");
         Log.i("wangrenguang", "onOffsetChanged wang3");
         Log.i("wangrenguang", "onOffsetChanged ren2");
+        Log.i("wangrenguang", "onOffsetChanged ren3");
     }
 }
