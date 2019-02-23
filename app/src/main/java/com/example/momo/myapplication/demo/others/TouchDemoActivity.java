@@ -1,24 +1,35 @@
 package com.example.momo.myapplication.demo.others;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.momo.myapplication.R;
+import com.example.momo.myapplication.monitor.BlockMonitor;
 
 public class TouchDemoActivity extends Activity {
 
 
     private float oldDist;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
         setContentView(R.layout.touch_demo);
+        Log.i("wangrenguang", "TouchDemoActivity");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.i("wangrenguang", "TouchDemoActivity");
     }
 
     @Override
@@ -41,6 +52,11 @@ public class TouchDemoActivity extends Activity {
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private float getFingerSpacing(MotionEvent event) {
