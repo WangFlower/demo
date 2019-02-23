@@ -10,5 +10,7 @@ public class GitTest {
 
     public void ff() {
         Log.i("wangrenguang", "onOffsetChanged ");
+
+        Log.i("wangrenguang", "onOffsetChanged ");
     }
 }
