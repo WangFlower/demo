@@ -40,6 +40,7 @@ public class AppBarBeh extends android.support.design.widget.AppBarLayout.Behavi
                 Log.i("wangrenguang","onOffsetChanged "+offset);
                 Log.i("wangrenguang","onOffsetChanged "+offset);
                 Log.i("wangrenguang","onOffsetChanged "+offset);
+                Log.i("wangrenguang","onOffsetChanged "+offset);
                 offset = verticalOffset;
                 if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
                     // 收缩状态
