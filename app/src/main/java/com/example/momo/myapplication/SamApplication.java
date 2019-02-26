@@ -22,6 +22,6 @@ public class SamApplication extends Application {
         LooperMonitorHelper.start();
 //        ActivityThreadHookHelper.doHookActivityStart();
 //        new EnentThread().start();
-        BlockMonitor.getInstance().start();
+//        BlockMonitor.getInstance().start();
     }
 }

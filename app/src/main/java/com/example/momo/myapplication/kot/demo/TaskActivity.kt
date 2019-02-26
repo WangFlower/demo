@@ -15,6 +15,8 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.startCoroutine
 import kotlin.coroutines.suspendCoroutine
 import kotlinx.android.synthetic.main.task.*
+import java.util.*
+import kotlin.concurrent.timerTask
 
 /**
  * create time 2018/11/8
@@ -28,9 +30,21 @@ class TaskActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.task)
         sam.text = "hahahha"
-        test()
+        time()
 
 //        test2()
+    }
+
+    fun asy() = GlobalScope.async(Dispatchers.Main) {
+        Log.i("wangrenguang", "asy1")
+        val userinfo = useTime().await()
+        Log.i("wangrenguang", "asy2+" + userinfo.name)
+    }
+
+    fun time() {
+        asy()
+        asy()
+        asy()
     }
 
 
@@ -61,8 +75,9 @@ class TaskActivity : Activity() {
 
     suspend fun useTime() = GlobalScope.async(SDispatchers.bg) {
         Log.i("wangrenguang", "useTime------1-" + Thread.currentThread().name)
-        UserTask.getUserInfo()
+        val userInfo = UserTask.getUserInfo()
         Log.i("wangrenguang", "useTime------2-" + Thread.currentThread().name)
+        userInfo
     }
 
 

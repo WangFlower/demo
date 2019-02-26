@@ -9,6 +9,8 @@ import android.widget.SeekBar;
 import com.example.momo.myapplication.R;
 import com.example.momo.myapplication.view.ColorMatrixImageView;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * Created by wang.renguang on 16/11/28.
  *
@@ -23,6 +25,7 @@ public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBar
     SeekBar b;
     ColorMatrixImageView colorMatrixImageView;
 
+    CountDownLatch countDownLatch = new CountDownLatch(1);
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,11 @@ public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBar
             }
         },15000);
 
+        countDownLatch.countDown();
+
+        countDownLatch.countDown();
+        countDownLatch.countDown();
+        countDownLatch.countDown();
 
     }
 
