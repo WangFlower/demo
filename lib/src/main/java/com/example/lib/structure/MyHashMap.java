@@ -1,4 +1,4 @@
-package com.example.lib.plan.structure;
+package com.example.lib.structure;
 
 /**
  * @author wang.renguang
@@ -7,7 +7,7 @@ package com.example.lib.plan.structure;
 public class MyHashMap<K, V> {
 
 
-    private Node<K, V> buckets;
+    private Node<K, V>[] buckets;
 
 
     public void put(K k, V v) {
