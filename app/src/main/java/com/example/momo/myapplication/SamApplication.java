@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
-import com.example.momo.myapplication.demo.eventbus.EnentThread;
 import com.example.momo.myapplication.monitor.BlockMonitor;
 import com.github.moduth.blockcanary.BlockCanary;
 

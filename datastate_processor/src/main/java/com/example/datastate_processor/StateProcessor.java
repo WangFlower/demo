@@ -1,7 +1,10 @@
 package com.example.datastate_processor;
 
 import com.google.auto.service.AutoService;
+import com.squareup.javapoet.AnnotationSpec;
+import com.squareup.javapoet.MethodSpec;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -139,8 +142,14 @@ public class StateProcessor extends AbstractProcessor {
             String packageName = mUtils.getPackageOf(classElemet).getQualifiedName().toString();
             String className = classElemet.getQualifiedName().toString().substring(
                     packageName.length() + 1).replace('.', '$');
-            final boolean isView = isAssignable(classElemet, "android.view.View");
 
+            final boolean isView = mTypeUtils.isAssignable(classElemet.asType(), mUtils.getTypeElement("android.view.View").asType());
+
+            MethodSpec.Builder saveMethodBuilder = MethodSpec.methodBuilder("save")
+                    .addAnnotation(Override.class)
+                    .addAnnotation(AnnotationSpec.builder(SuppressWarnings.class)
+                            .addMember("value", "$S", "unchecked")
+                            .build()).addModifiers(javax.lang.model.element.Modifier.PUBLIC);
         }
 
 

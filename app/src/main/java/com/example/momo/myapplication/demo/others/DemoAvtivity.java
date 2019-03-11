@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.SparseArray;
 import android.widget.SeekBar;
 
 import com.example.momo.myapplication.R;
@@ -26,6 +27,9 @@ public class DemoAvtivity extends AppCompatActivity implements SeekBar.OnSeekBar
     ColorMatrixImageView colorMatrixImageView;
 
     CountDownLatch countDownLatch = new CountDownLatch(1);
+    SparseArray array;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
